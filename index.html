@@ -1,0 +1,248 @@
+<!doctype html>
+<html class="no-js" lang='en'>
+    <head>
+        <meta charset="UTF-8">
+        <title>David Dancing</title>
+
+        <style type="text/css">
+
+          /* initial state */
+          #container {
+            position: relative;
+            height: 400px;
+            color: #fff;
+            width: 200px;
+            margin: auto;
+          }
+          div#david {
+            position: absolute;
+            top: 100px;
+            left: 20px;
+            -webkit-transition: 3s ease-in;
+            -moz-transition: 3s ease-in;
+            -o-transition: 3s ease-in;
+            transition: 3s ease-in;
+          }
+          #david {
+            width: 109px;
+            height: 146px;
+            /*background: url(/images/rocket.gif) no-repeat;*/
+            /*-webkit-transition: 2s ease-in-out;
+            -moz-transition: 2s ease-in-out;
+            -o-transition: 2s ease-in-out;
+            transition: 2s ease-in-out;*/
+          }
+          
+          #head {
+            z-index: 10;
+            width: 217px;
+            height: 291px;
+            background: url(head.png) no-repeat;
+            /*-webkit-transition: 2s ease-in-out;
+            -moz-transition: 2s ease-in-out;
+            -o-transition: 2s ease-in-out;
+            transition: 2s ease-in-out;*/
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            margin:-60px 0 0 -60px;
+           }
+
+          #head.spin{
+            -webkit-animation:spin 50s linear infinite;
+            -moz-animation:spin 50s linear infinite;
+            animation:spin 50s linear infinite;
+          }
+
+          #head.spin-back {
+            -webkit-animation:spinBack 0.1s linear infinite;
+            -moz-animation:spinBack 0.1s linear infinite;
+            animation:spinBack 0.1s linear infinite;
+          }
+
+          #body {
+            z-index: 5;
+            width: 462px;
+            height: 794px;
+            background: url(body.png) no-repeat;
+            /*-webkit-transition: 2s ease-in-out;
+            -moz-transition: 2s ease-in-out;
+            -o-transition: 2s ease-in-out;
+            transition: 2s ease-in-out;*/
+            position: absolute;
+            top: 165px;
+            left: 50%;
+            margin-left: -154px;
+          }
+
+          #right-arm {
+            z-index: 2;
+            width: 412px;
+            height: 250px;
+            background: url(rightarm.png) no-repeat;
+            position: absolute;
+            top: 276px;
+            left: 50%;
+            margin-left: -474px;
+           
+          }
+
+          #right-arm.flap {
+            -webkit-animation:armFlap 0.4s linear infinite;
+                -moz-animation:armFlap 0.4s linear infinite;
+                animation:armFlap 0.4s linear infinite;
+                -webkit-transform-origin: 100% 0%;
+                -moz-transform-origin: 100% 0%;
+                -o-transform-origin: 100% 0%;
+                transform-origin: 100% 0%;
+          }
+
+          #right-arm.flap-back{
+            -webkit-animation:armFlapBack 0.4s linear infinite;
+                -moz-animation:armFlapBack 0.4s linear infinite;
+                animation:armFlapBack 0.4s linear infinite;
+                -webkit-transform-origin: 100% 0%;
+                -moz-transform-origin: 100% 0%;
+                -o-transform-origin: 100% 0%;
+                transform-origin: 100% 0%;
+          }
+
+          #left-arm.flap{
+            -webkit-animation:armFlap 0.4s linear infinite;
+                -moz-animation:armFlap 0.4s linear infinite;
+                animation:armFlap 0.4s linear infinite;
+                -webkit-transform-origin: 0% 0%;
+                -moz-transform-origin: 0% 0%;
+                -o-transform-origin: 0% 0%;
+                transform-origin: 0% 0%;
+          }
+
+          #left-arm.flap-back{
+            -webkit-animation:armFlapBack 0.4s linear infinite;
+                -moz-animation:armFlapBack 0.4s linear infinite;
+                animation:armFlapBack 0.4s linear infinite;
+                -webkit-transform-origin: 0% 0%;
+                -moz-transform-origin: 0% 0%;
+                -o-transform-origin: 0% 0%;
+                transform-origin: 0% 0%;
+          }
+
+
+          #left-arm {
+            z-index: 1;
+            width: 284px;
+            height: 633px;
+            background: url(leftarm.png) no-repeat;
+            position: absolute;
+            top: 281px;
+            left: 50%;
+            margin-left: 264px;
+          }
+
+          /* hover final state */
+          /*#container:hover div.head {
+            -webkit-transform: translate(540px,-400px);
+            -moz-transform: translate(540px,-400px);
+            -o-transform: translate(540px,-400px);
+            -ms-transform: translate(540px,-400px);
+            transform: translate(540px,-400px);
+          }
+          #container:hover div.head div {
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+          }*/
+
+            @-moz-keyframes spin { 1% { -moz-transform: rotate(360deg); } }
+            @-webkit-keyframes spin { 1% { -webkit-transform: rotate(360deg); } }
+            @keyframes spin { 1% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+            @-moz-keyframes spinBack { 100% { -moz-transform: rotate(-360deg); } }
+            @-webkit-keyframes spinBack { 100% { -webkit-transform: rotate(-360deg); } }
+            @keyframes spinBack { 100% { -webkit-transform: rotate(-360deg); transform:rotate(-360deg); } }
+
+
+            @-moz-keyframes armFlap { 100% { -moz-transform: rotate(30deg); } }
+            @-webkit-keyframes armFlap { 100% { -webkit-transform: rotate(30deg); } }
+            @keyframes armFlap { 100% { -webkit-transform: rotate(30deg); transform:rotate(30deg); } }
+
+            @-moz-keyframes armFlapBack { 100% { -moz-transform: rotate(-30deg); } }
+            @-webkit-keyframes armFlapBack { 100% { -webkit-transform: rotate(-30deg); } }
+            @keyframes armFlapBack { 100% { -webkit-transform: rotate(-30deg); transform:rotate(-30deg); } }
+
+        </style>
+
+
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="container">
+                <div id="david">
+                    <div id="head"></div>
+                    <div id="right-arm"></div>
+                    <div id="body"></div>
+                    <div id="left-arm"></div>
+                        <div><!-- rocket --></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            
+            setTimeout(function(){
+                new Audio('david.mp3').play();
+             }, 2000);
+
+            setTimeout(function(){
+                animate();
+             }, 4000);
+
+            function animate() {
+                spinBackHead();
+                function spinBackHead() {
+                    var head = document.getElementById("head");
+                    head.className = "spin";
+                    setTimeout(function(){
+                        head.className = "spin-back";
+                    }, 2500);
+                    setTimeout(function(){ spinBackHead() }, 3000);
+                }
+
+                spinArm()
+                function spinArm() {
+                    var rArm = document.getElementById("right-arm");
+                    var lArm = document.getElementById("left-arm");
+                    rArm.className = "flap";
+                    setTimeout(function(){
+                        rArm.className = "";
+                        lArm.className = "flap-back";
+                    }, 400);
+                    
+                    setTimeout(function(){
+                        lArm.className = "";
+                    }, 1000);
+                    setTimeout(function(){ spinArm() }, 3000);
+                }
+
+                spinBackArm()
+                function spinBackArm() {
+                    var rArm = document.getElementById("right-arm");
+                    var lArm = document.getElementById("left-arm");
+                    setTimeout(function(){
+                        rArm.className = "flap-back";
+                        lArm.className = "flap";
+                    }, 800);
+                    
+                    setTimeout(function(){
+                        rArm.className = "";
+                        lArm.className = "";
+                    }, 1200);
+                    setTimeout(function(){ spinBackArm() }, 3000);
+                }
+            }
+            
+            
+        </script>
+    </body>
+</html>
