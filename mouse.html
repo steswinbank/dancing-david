@@ -59,9 +59,15 @@
             </div>
         </div>
         <script>
+            myAudio = new Audio('help.mp3');
+            myAudio.loop = true;
+            myAudio.play();
+
+
             var mouseCounter = 0;
 
             function addMouse() {
+                new Audio('mouse.mp3').play();
                 mouseCounter++;
                 var mouse = createMouse();
                 document.getElementById("container").appendChild(mouse);
@@ -75,6 +81,7 @@
 
                 mouse.addEventListener("click", function() {
                     mouse.parentNode.removeChild(mouse);
+                    new Audio('mousescream.mp3').play();
                     return false;
                 });
 
