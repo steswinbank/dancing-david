@@ -73,9 +73,6 @@
                 mouse.style.top = getRandomValue(screen.height, 0) + "px";
                 mouse.style.left = (getRandomValue(screen.width/2, 0) + 100) + "px";
 
-                console.log("screen.height", screen.height);
-                console.log("mouse.style.left:", mouse.style.left);
-
                 mouse.addEventListener("click", function() {
                     mouse.parentNode.removeChild(mouse);
                     return false;
@@ -86,12 +83,10 @@
 
             function getRandomValue(max, min) {
                 var val = Math.floor(Math.random() * max) + min;
-                console.log("val:", val);
                 return val;
             }
 
             document.addEventListener("click", function() {
-                console.log("click");
                 if (mouseCounter == 10) {
                     for (i = 0; i < 100; i++) {
                         addMouse();
