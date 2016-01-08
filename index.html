@@ -94,6 +94,7 @@
             height: 67px;
             top: 309px;
             left: -333px;
+            cursor: crosshair;
 
             -webkit-animation-name: hop;
             -webkit-animation-duration:.3s;
@@ -274,6 +275,10 @@
                     }, 1200);
                     setTimeout(function(){ spinBackArm() }, 3000);
                 }
+
+                document.getElementById("mouse").addEventListener("click", function() {
+                    window.location.href = 'mouse.html';
+                });
             }
             
             

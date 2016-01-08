@@ -1,0 +1,108 @@
+<!doctype html>
+<html class="no-js" lang='en'>
+    <head>
+        <meta charset="UTF-8">
+        <title>David Dancing</title>
+
+        <style type="text/css">
+
+          /* initial state */
+          #container {
+            position: relative;
+            height: 100%;
+            color: #fff;
+            width: 100%;
+            margin: auto;
+          }
+ 
+          .mouse {
+            z-index: 1;
+            background: url(mouse.png) no-repeat;
+            position: absolute;
+            width: 70px;
+            height: 67px;
+            cursor: crosshair;
+
+            -webkit-animation-name: hop;
+            -webkit-animation-duration:.3s;
+            -webkit-animation-direction:alternate;
+            -webkit-animation-timing-function:linear;
+            -webkit-animation-delay:0s;
+            -webkit-animation-iteration-count:infinite;
+            -moz-animation-name: hop;
+            -moz-animation-duration:.3s;
+            -moz-animation-direction:alternate;
+            -moz-animation-timing-function:linear;
+            -moz-animation-delay:0s;
+            -moz-animation-iteration-count:infinite;
+          }
+
+            @-webkit-keyframes hop { 
+                from {-webkit-transform: translate(0px,0px); }
+                to {-webkit-transform: translate(0px,-30px);}  
+            }
+
+            @-moz-keyframes hop {
+                   from { -moz-transform: translate(0px,0px); }
+                   to { -moz-transform: translate(0px,-30px); }  
+            }
+            
+
+        </style>
+
+
+    </head>
+    <body>
+        <div id="wrapper">
+        <p>shoot those damn mice!</p>
+            <div id="container">
+            </div>
+        </div>
+        <script>
+            var mouseCounter = 0;
+
+            function addMouse() {
+                mouseCounter++;
+                var mouse = createMouse();
+                document.getElementById("container").appendChild(mouse);
+            }
+
+            function createMouse() {
+                var mouse = document.createElement('div');
+                mouse.className = "mouse";
+                mouse.style.top = getRandomValue(screen.height, 0) + "px";
+                mouse.style.left = (getRandomValue(screen.width/2, 0) + 100) + "px";
+
+                console.log("screen.height", screen.height);
+                console.log("mouse.style.left:", mouse.style.left);
+
+                mouse.addEventListener("click", function() {
+                    mouse.parentNode.removeChild(mouse);
+                    return false;
+                });
+
+                return mouse;
+            }
+
+            function getRandomValue(max, min) {
+                var val = Math.floor(Math.random() * max) + min;
+                console.log("val:", val);
+                return val;
+            }
+
+            document.addEventListener("click", function() {
+                console.log("click");
+                if (mouseCounter == 10) {
+                    for (i = 0; i < 100; i++) {
+                        addMouse();
+                    }
+                } else {
+                    addMouse();
+                }
+            });
+
+            addMouse();
+
+        </script>
+    </body>
+</html>
